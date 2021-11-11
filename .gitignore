@@ -1,0 +1,9 @@
+# mac stuff
+.DS_Store
+
+# configs
+config.py
+config.js
+
+# large files
+data
