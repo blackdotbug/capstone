@@ -1,0 +1,6 @@
+name: capstone-etl
+channels:
+  - defaults
+dependencies:
+  - python=3.6
+prefix: /opt/anaconda3/envs/capstone-etl
