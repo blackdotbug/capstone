@@ -3,4 +3,9 @@ channels:
   - defaults
 dependencies:
   - python=3.6
+  - jupyter
+  - sqlalchemy
+  - pandas
+  - pip:
+    - psycopg2-binary==2.9.1
 prefix: /opt/anaconda3/envs/capstone-etl
