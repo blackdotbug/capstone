@@ -4,19 +4,187 @@
     <meta charset="utf-8">
     <title>How sexist is reddit?</title>
     <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <script src="https://kit.fontawesome.com/2f1fd6afa8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/app.css">
   </head>
   <body>
-    <h1>How sexist is reddit?</h1>
-    <div class="menu">
-      menu goes here
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="/" class="w3-bar-item w3-button w3-wide">HOW SEXIST IS REDDIT?</a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-comment-dots"></i> ABOUT</a>
+          <a href="#analysis" class="w3-bar-item w3-button"><i class="fa fa-chart-bar"></i> ANALYSIS</a>
+          <a href="#resources" class="w3-bar-item w3-button"><i class="fa fa-code"></i> RESOURCES</a>
+          <a href="/review" class="w3-bar-item w3-button"><i class="fa fa-check-circle"></i> PARTICIPATE</a>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </div>
-    <div class="purpose">
-      purpose/intro text goes here
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+      <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+      <a href="#analysis" onclick="w3_close()" class="w3-bar-item w3-button">ANALYSIS</a>
+      <a href="#resources" onclick="w3_close()" class="w3-bar-item w3-button">RESOURCES</a>
+      <a href="/review" onclick="w3_close()" class="w3-bar-item w3-button">PARTICIPATE</a>
+    </nav>
+
+    <!-- Header with full-height image -->
+    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+      <div class="w3-display-left w3-text-white" style="padding:48px">
+        <span class="w3-jumbo w3-hide-small">How good is machine learning at detecting sexism?</span><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">How good is machine learning at detecting sexism?</span><br>
+        <span class="w3-large">Machine learning has come a long way in the realm of natural language processing, but it's still got a long way to go. <br>We built a Convolutional Neural Network to detect sexism in social media comments. <br>Cast your vote for how well it works one comment at a time.</span>
+        <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Read on</a></p>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <div class="w3-container" style="padding:128px 16px" id="about">
+      <h3 class="w3-center">ABOUT THE PROJECT</h3>
+      <p class="w3-center w3-large">What Got Us Here</p>
+      <div class="w3-row-padding w3-center" style="margin-top:64px">
+        <div class="w3-quarter">
+          <i class="fa fa-bullhorn w3-margin-bottom w3-jumbo w3-center"></i>
+          <p class="w3-large">Making Progress in the Fight</p>
+          <p>There's been a lot going on in the fight against internet toxicity. Feminist advocacy groups like UltraViolet are putting a lot of work into reports and analysis of the current state of things. <a href="https://weareultraviolet.org/wp-content/uploads/2021/11/Social-media-report-card.pdf">Their findings are not great</a>.</p>
+        </div>
+        <div class="w3-quarter">
+          <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+          <p class="w3-large">Oh the Humanity</p>
+          <p>Keeping humans in the loop in moderating online content is both necessary and challenging. Humans come with bias, but so do models built by humans. And the impact to individuals who do the work of moderating toxic content online <a href="https://crowd.cs.vt.edu/wp-content/uploads/2021/02/CHI21_final__The_Psychological_Well_Being_of_Content_Moderators-2.pdf">can have serious detrimental effects</a>.</p>
+        </div>
+        <div class="w3-quarter">
+          <i class="fa fa-brain w3-margin-bottom w3-jumbo"></i>
+          <p class="w3-large">Machine Learning to the Rescue</p>
+          <p>Natural Language Processing models are frequently used to classify text. What dataset you use to train them can have a lot of impact on their effectiveness. <a href="https://arxiv.org/pdf/2004.12764v2.pdf">A recent project out of GESIS in Germany</a> found that by carefully constructing a training dataset, automated measures for detecting sexism can be improved.</p>
+        </div>
+        <div class="w3-quarter">
+          <i class="fa fa-bomb w3-margin-bottom w3-jumbo"></i>
+          <p class="w3-large">Disruptors Gonna Disrupt</p>
+          <p>While lots of progress is being made, there's still a lot to do. That hasn't stopped tech entrepreneurs from <a href="https://www.scientificamerican.com/article/can-ai-identify-toxic-online-content/">trying to capitalize on this emerging market of automated content moderation</a>. Before these startups do more harm than good by introducing poorly trained models into the wild, let's keep working the problem.</p>
+        </div>
+      </div>
     </div>
-    <div class="steps">
-      steps overview goes here
+
+    <!-- Analysis Section -->
+    <div class="w3-container" style="padding:128px 16px" id="analysis">
+      <h3 class="w3-center">THE ANALYSIS</h3>
+      <p class="w3-center w3-large">What We Did</p>
+      <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+        <div class="w3-col l4 m12 w3-margin-bottom">
+          <div class="w3-card">
+            <div class="w3-container">
+              <h3>The Call Me Sexist, But Dataset</h3>
+              <p class="w3-opacity">where we started</p>
+              <p>The dataset we used to train our model was a sample of 10,000 tweets from the dataset published with the <i>"Call me sexist, but...": Revisiting Sexism Detection Using Psychological Scales and Adversarial Samples</i> paper.</p>
+            </div>
+            <div class="training-data">
+              <div id="source" class="training-viz">
+                <p class="w3-container">The authors combined known datasets (Hostile Sexism Tweets and Other (non-sexist) Tweets from <i>Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter</i> and Benevolent Sexism Tweets from <i>When does a compliment become sexist? Analysis and classification of ambivalent sexism using twitter data</i>) with their own data (Call Me Sexist Tweets) and statements they pulled from psychological scales designed to measure sexism in individuals (Sexism Scales) </p>
+              </div>
+              <div id="edited" class="training-viz" style="display:none">
+                <p class="w3-container">They added another subset of datapoints they reference as "Adversarial". In the paper they describe the process used for generating this data: <i>"We challenged crowdworkers to remove as much of the sexism as possible from the sexist examples, so as to produce adversarial examples which have minimal lexical changes, but that are non-sexist."</i></p>
+              </div>
+              <div id="sexist" class="training-viz" style="display:none">
+                <p class="w3-container">All of the datapoints were labeled as sexist or not sexist, and samples from each dataset were annotated and labels potentially modified by crowdsourced workers using a sexism codebook the authors defined.</p>
+              </div>
+              <div class="w3-bar w3-black">
+                <button class="w3-bar-item w3-button" onclick="openViz('source')">Tweet Sources</button>
+                <button class="w3-bar-item w3-button" onclick="openViz('edited')">Adversarial Edits</button>
+                <button class="w3-bar-item w3-button" onclick="openViz('sexist')">Sexist/Not Sexist</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col l4 m12 w3-margin-bottom">
+          <div class="w3-card">
+            <div class="w3-container">
+              <h3>Our Model</h3>
+              <p class="w3-opacity">what we made</p>
+              <p>We used tensorflow and keras to build and compile a Convolutional Neural Network model, taking advantage of keras' TextVectorization layer in the tf-idf output mode to convert text to numeric vectors. Our output layer used a sigmoid activation function to produce probablistic predictions.</p>
+              <div class="model">
+                <div id="training-model" class="model-img">
+                  <img src="/static/assets/images/training-model.png" alt="training model summary" style="width:100%">
+                  <p class="w3-container">We used several different types of layers and trained our model in three epochs. Once trained our model evaluated on the test split of the dataset with an accuracy of 0.8716</p>
+                </div>
+                <div id="text-processing" class="model-img" style="display:none">
+                  <img src="/static/assets/images/text-preprocessing.png" alt="text preprocessing code" style="width:100%">
+                  <p class="w3-container">We used nearly identical text preprocessing functions as found in the github repository associated with source dataset.</p>
+                </div>
+                <div id="e2e-model" class="model-img" style="display:none">
+                  <img src="/static/assets/images/end-to-end-model.png" alt="end to end model summary" style="width:100%">
+                  <p class="w3-container">Finally, we made an end-to-end model that can accept our preprocessed text strings by adding an additional input layer and the TextVectorization layer we adapted to the source dataset. This model we saved and deployed to this website to be used to score reddit comments.</p>
+                </div>
+              </div>
+            </div>
+            <div class="w3-bar w3-black">
+              <button class="w3-bar-item w3-button" onclick="openImg('training-model')">Training Model</button>
+              <button class="w3-bar-item w3-button" onclick="openImg('text-processing')">Text Preprocessing</button>
+              <button class="w3-bar-item w3-button" onclick="openImg('e2e-model')">End to End Model</button>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col l4 m12 w3-margin-bottom">
+          <div class="w3-card">
+            <div class="w3-container">
+              <h3>The Reddit Data</h3>
+              <p class="w3-opacity">how it's going</p>
+              <p>Using the Reddit API we set up a streaming endpoint to capture real-time comments from any given subreddit, from which we pulled the comment body and ran it through our preprocessor (additionally removing any blockquotes). We stored the processed text and our model's prediction in a Mongo Atlas database.</p>
+            </div>
+            <div class="reddit">
+              <div id="predictions" class="reddit-viz">
+                <h4 class="w3-container">Sexist and Not Sexist Reddit comments by subreddit as predicted by the model.</h4>
+              </div>
+              <div id="votes" class="reddit-viz" style="display:none">
+                <h4 class="w3-container">Sexist and Not Sexist Reddit comments by subreddit by ratio of participant votes. (The model prediction is one vote.)</h4>
+              </div>
+            </div>
+            <div class="w3-bar w3-black">
+              <button class="w3-bar-item w3-button" onclick="openViz2('predictions')">Model Predictions</button>
+              <button class="w3-bar-item w3-button" onclick="openViz2('votes')">Participant Votes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Resources Section -->
+    <div class="w3-container w3-light-grey" style="padding:128px 16px" id="resources">
+      <div class="w3-row-padding">
+        <div class="w3-col m6">
+          <h3>CODE AND RESOURCES</h3>
+          <ul>
+            <li><a href="https://github.com/blackdotbug/capstone">This project's github repository</a></li>
+            <li><a href="https://github.com/gesiscss/theory-driven-sexism-detection">Github repository for <i>“Call me sexist, but...” : Revisiting Sexism Detection Using Psychological Scales and Adversarial Samples</i> </a></li>
+            <li><a href="https://aclanthology.org/N16-2013/">Paper and Code for <i>Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter</i></a></li>
+            <li><a href="https://aclanthology.org/W17-2902/">Paper and Code for <i>When does a compliment become sexist? Analysis and classification of ambivalent sexism using twitter data</i></a></li>
+          </ul>
+          <p><a href="/review" class="w3-button w3-black"><i class="fa fa-check-circle"> </i> Start Voting</a></p>
+        </div>
+        <div class="w3-col m6">
+          <img class="w3-image w3-round-large" src="/static/assets/images/SocialMediaPatches.jpeg" alt="socialmedia" width="700" height="394">
+          <p>Image attribution: <a href="https://commons.wikimedia.org/wiki/File:SocialMediaPatches.jpeg">webtreats from United States</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64">
+      <p>Header image attribution: <a href="https://commons.wikimedia.org/wiki/File:Fight_sexism_graffiti_in_Turin_November_2016.jpg">Prof.lumacorno</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons</p>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    </footer>
+
     <script src="/static/js/app.js" charset="utf-8"></script>
+    <script src="/static/js/template.js" charset="utf-8"></script>
   </body>
 </html>

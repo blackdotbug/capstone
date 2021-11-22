@@ -8,6 +8,7 @@ config.js
 # large files
 data
 vectorizedNNe2e
+.h5
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

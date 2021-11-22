@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>How sexist is reddit?</title>
+    <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <script src="https://kit.fontawesome.com/2f1fd6afa8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/app.css">
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="/" class="w3-bar-item w3-button w3-wide">HOW SEXIST IS REDDIT?</a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <a href="/#about" class="w3-bar-item w3-button"><i class="fa fa-comment-dots"></i> ABOUT</a>
+          <a href="/#analysis" class="w3-bar-item w3-button"><i class="fa fa-chart-bar"></i> ANALYSIS</a>
+          <a href="/#resources" class="w3-bar-item w3-button"><i class="fa fa-code"></i> RESOURCES</a>
+          <a href="/review" class="w3-bar-item w3-button"><i class="fa fa-check-circle"></i> PARTICIPATE</a>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+      <a href="/#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+      <a href="/#analysis" onclick="w3_close()" class="w3-bar-item w3-button">ANALYSIS</a>
+      <a href="/#resources" onclick="w3_close()" class="w3-bar-item w3-button">RESOURCES</a>
+      <a href="/review" onclick="w3_close()" class="w3-bar-item w3-button">PARTICIPATE</a>
+    </nav>
+
+    <div class="w3-container w3-light-grey" style="padding:128px 16px">
+      <div class="w3-row-padding">
+        <div class="w3-col m6">
+          <h3>Subreddit: {{comment.subreddit}}</h3>
+          <p>{{comment.comment|safe}}</p>
+          <p><a href="http://reddit.com{{comment.url}}">permalink</a></p>
+          <div class="score">
+            <p>{{comment.prediction}}</p>
+          </div>
+          <p>
+            <a href="/score/{{comment._id}}/True" class="w3-button w3-black">Sexist</a>
+            <a href="/score/{{comment._id}}/False" class="w3-button w3-black">Not Sexist</a>
+            <a href="/review" class="w3-button w3-black">Skip</a>
+          </p>
+        </div>
+        <div class="w3-col m6">
+          <div class="votes_viz">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="w3-center w3-black w3-padding-64">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    </footer>
+
+    <script type="text/javascript">
+      const votes = []
+      {% for vote in comment.votes %}
+        votes.push("{{vote}}")
+      {% endfor %}
+    </script>
+
+    <script src="/static/js/review.js" charset="utf-8"></script>
+    <script src="/static/js/template.js" charset="utf-8"></script>
+  </body>
+</html>
