@@ -30,7 +30,7 @@ function openViz(vizName) {
     x[i].style.display = "none";
   }
   document.getElementById(vizName).style.display = "block";
-  plotAllTraining()
+  // plotAllTraining()
 }
 
 function openImg(divID) {
@@ -49,5 +49,5 @@ function openViz2(vizName) {
     x[i].style.display = "none";
   }
   document.getElementById(vizName).style.display = "block";
-  plotAllReddit()
+  // plotAllReddit()
 }

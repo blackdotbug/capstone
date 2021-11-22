@@ -16,3 +16,8 @@ body, html {
 .w3-bar .w3-button {
   padding: 16px;
 }
+
+.training-viz, .reddit-viz {
+  min-width: 300;
+  min-height: 300;
+}

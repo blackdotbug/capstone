@@ -1,6 +1,5 @@
 import re
 from bs4 import BeautifulSoup
-import s3fs
 import zipfile
 from tensorflow import keras
 from pathlib import Path

@@ -19,8 +19,8 @@ CORS(app)
 
 app.config["DEBUG"] = True
 
-# app.config["MONGO_URI"] = os.environ['MONGO_URI']
-app.config["MONGO_URI"] = f"mongodb+srv://{config.mongouser}:{config.mongopass}@cluster0.4h6yv.mongodb.net/redditcomments?retryWrites=true&w=majority"
+# app.config["MONGO_URI"] = os.environ['mongoURI']
+app.config["MONGO_URI"] = config.mongoURI
 
 DATABASE_URL = config.postgresURI
 engine = create_engine(DATABASE_URL)
