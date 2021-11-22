@@ -19,15 +19,14 @@ CORS(app)
 
 app.config["DEBUG"] = True
 
-# app.config["MONGO_URI"] = os.environ['MONGO_URI']
-app.config["MONGO_URI"] = f"mongodb+srv://{config.mongouser}:{config.mongopass}@cluster0.4h6yv.mongodb.net/redditcomments?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = os.environ['mongoURI']
 
-DATABASE_URL = config.postgresURI
+DATABASE_URL = os.environ['postgresURI']
 engine = create_engine(DATABASE_URL)
 
 reddit = praw.Reddit(
-    client_id=config.clientID,
-    client_secret=config.clientSecret,
+    client_id=os.environ['clientID'],
+    client_secret=os.environ['clientSecret'],
     user_agent="predicting sexism"
 )
 
