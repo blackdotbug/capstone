@@ -1,8 +1,5 @@
 import re
 from bs4 import BeautifulSoup
-import zipfile
-from tensorflow import keras
-from pathlib import Path
 
 emoji_pattern = re.compile("["
         u"\U0001F600-\U0001F64F"  # emoticons
@@ -39,10 +36,3 @@ def preprocess(text, fix_encoding=False):
             return normalize(detweet(text))
     else:
         return text
-
-def get_model():
-    path = Path("./static/assets/vectorizedNNe2e/saved_model.pb")
-    if not path.is_file():
-        with zipfile.ZipFile("./static/assets/vectorizedNNe2e.zip") as zip_ref:
-            zip_ref.extractall("./static/assets")
-    return keras.models.load_model("./static/assets/vectorizedNNe2e")

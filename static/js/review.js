@@ -46,11 +46,11 @@ g.selectAll('allPolylines')
     .style("fill", "none")
     .attr("stroke-width", 1)
     .attr('points', function(d) {
-      const posA = arc.centroid(d) // line insertion in the slice
-      const posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
-      const posC = outerArc.centroid(d); // Label position = almost the same as posB
-      const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
-      posC[0] = radius * 0.7 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
+      const posA = arc.centroid(d)
+      const posB = outerArc.centroid(d)
+      const posC = outerArc.centroid(d);
+      const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+      posC[0] = radius * 0.7 * (midangle < Math.PI ? 1 : -1); 
       return [posA, posB, posC]
     })
 
