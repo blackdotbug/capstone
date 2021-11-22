@@ -1,8 +1,0 @@
-name: capstone-ml
-channels:
-  - defaults
-dependencies:
-  - python=3.6
-  - scikit-learn
-  - jupyter
-prefix: /opt/anaconda3/envs/capstone-ml
