@@ -16,7 +16,7 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 CORS(app)
 
-app.config["DEBUG"] = True
+# app.config["DEBUG"] = True
 
 app.config["MONGO_URI"] = os.environ['mongoURI']
 
@@ -48,23 +48,23 @@ def score_comment(id,sexist):
     redditcomments.update_one({'_id':ObjectId(id)}, {'$push': {'votes': sexist}})
     return redirect(url_for('review_comments'))
 
-@app.route("/stream/<subreddit>")
-def stream(subreddit):
-    for comment in reddit.subreddit(subreddit).stream.comments():
-        comment_body = BeautifulSoup(comment.body_html, 'html.parser')
-        if comment_body:
-            quote = comment_body.blockquote
-            if quote:
-                comment_body = comment_body.blockquote.decompose()
-            if comment_body:
-                prediction = model.predict([preprocess(comment_body.get_text())])
-                existing = redditcomments.find_one({"url":comment.permalink})
-                sexist = False
-                if prediction[0][0].item() > 0.5:
-                    sexist = True
-                if not existing:
-                    redditcomments.insert_one({'comment': comment.body_html, 'processed_comment':preprocess(comment_body.get_text()), 'prediction':prediction[0][0].item(), 'url':comment.permalink, 'subreddit': subreddit, 'votes': [sexist]})
-        sleep(1)
+# @app.route("/stream/<subreddit>")
+# def stream(subreddit):
+#     for comment in reddit.subreddit(subreddit).stream.comments():
+#         comment_body = BeautifulSoup(comment.body_html, 'html.parser')
+#         if comment_body:
+#             quote = comment_body.blockquote
+#             if quote:
+#                 comment_body = comment_body.blockquote.decompose()
+#             if comment_body:
+#                 prediction = model.predict([preprocess(comment_body.get_text())])
+#                 existing = redditcomments.find_one({"url":comment.permalink})
+#                 sexist = False
+#                 if prediction[0][0].item() > 0.5:
+#                     sexist = True
+#                 if not existing:
+#                     redditcomments.insert_one({'comment': comment.body_html, 'processed_comment':preprocess(comment_body.get_text()), 'prediction':prediction[0][0].item(), 'url':comment.permalink, 'subreddit': subreddit, 'votes': [sexist]})
+#         sleep(1)
 
 @app.route("/api/sexism")
 def load_sexism_data():
