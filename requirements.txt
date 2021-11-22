@@ -1,5 +1,4 @@
 # beautifulsoup4 tensorflow flask flask-cors Flask-PyMongo psycopg2 SQLAlchemy numpy pandas praw gunicorn
-python==3.7.11
 absl-py==1.0.0
 astunparse==1.6.3
 beautifulsoup4==4.10.0
