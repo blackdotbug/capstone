@@ -5,7 +5,6 @@ from flask_cors import CORS
 from tensorflow import keras
 import psycopg2
 from sqlalchemy import create_engine
-import config
 import numpy as np
 import pandas as pd
 from helpers import preprocess, get_model
