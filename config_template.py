@@ -1,7 +1,6 @@
 postgresURI = "<YOUR POSTGRES DATABASE URI>"
 
-mongouser = "<YOUR MONGO ATLAS USER>"
-mongopass = "<YOUR MONGO ATLAS USER's PASSWORD>"
+mongoURI = "<YOUR MONGO DATABASE URI>"
 
 # reddit api
 clientID = "<YOUR REDDIT APP CLIENT ID>"
