@@ -41,6 +41,11 @@ On our dashboard we explored the original dataset, explained the basic structure
 
 ### Modules, Tools and Frameworks
 
-- PRAW
+- PRAW (a python wrapper for the reddit api)
 - Tensorflow/Keras
 - D3.js
+- Flask
+- Heroku Postgres
+- Mongo Atlas
+- Jupyter Notebook
+- Pandas
